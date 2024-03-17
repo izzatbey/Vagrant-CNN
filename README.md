@@ -2,6 +2,10 @@
 
 The CNN Code comes from this repository (https://github.com/Zaikhul/CNN-Classification)
 
+## Architecture
+This is the sample architecture when the VMs installation using vagrant is complete:
+![arch](images/arch.png)
+
 ## Installation
 - Download Vagrant (https://developer.hashicorp.com/vagrant/install)
 - Install Vagrant
@@ -54,3 +58,13 @@ Please consider this configuration on your PC based on your system requirements
   ```
   vagrant up
   ```
+- After the installation is complete there are two ways to interact with your VM:
+  - Via SSH:
+    In your terminal:
+    ```
+    vagrant ssh <vm-name>
+    ```
+  - Via Vbox Manager:
+    Click on the running VMs that created by the vagrant:
+    
+    ![post-install](images/post-install.png)
