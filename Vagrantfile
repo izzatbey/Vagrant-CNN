@@ -2,13 +2,13 @@ Vagrant.configure("2") do |config|
   # Enable the vagrant-vbguest plugin
   config.vbguest.auto_update = true
 
-  (1..3).each do |i|
+  (1..1).each do |i|
     config.vm.define "vm#{i}" do |vm|
-      vm.vm.box = "ubuntu/focal64"
+      vm.vm.box = "ubuntu/jammy64"
       vm.vm.hostname = "vm#{i}"
       
       vm.vm.provider "virtualbox" do |v|
-        v.memory = 2048
+        v.memory = 4096
         v.cpus = 1
       end
 
@@ -17,21 +17,22 @@ Vagrant.configure("2") do |config|
         # Update package lists and install git
         apt-get update
         apt-get install -y git
+        apt install python3 python3-venv python3-pip -y
 
         # Clone the repository
-        git clone https://github.com/Zaikhul/CNN-Classification.git /home/vagrant/CNN-Classification
+        git clone https://github.com/izzatbey/CNN-Classification.git /home/vagrant/CNN-Classification
 
         # Navigate to the repository directory
         cd /home/vagrant/CNN-Classification
 
         # Create a Python virtual environment
-        python3 -m venv CNN-venv
+        python3 -m venv venv
 
         # Activate the virtual environment
-        source CNN-venv/bin/activate
+        source venv/bin/activate
 
         # Install required packages
-        pip install -r requirements.txt
+        pip3 install -r requirements.txt
 
         # Run the program
         # python main.py
